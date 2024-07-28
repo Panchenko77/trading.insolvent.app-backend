@@ -1,0 +1,73 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      ## i would suggest running this only on a "stable" branch especialy if every push is to main, but i think caching target helps with this
+
+jobs:
+  build:
+    runs-on: buildjet-4vcpu-ubuntu-2204-arm
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: 1.77.1
+        override: true
+    - name: Ubuntu version 
+      run: lsb_release -a
+
+    
+      
+    - name: rustfmt
+      run: rustup component add rustfmt
+
+
+    - name: Install cargo-deb
+      run: cargo install cargo-deb --no-default-features
+    
+    - name: Cache cargo build
+      uses: Swatinem/rust-cache@v2
+      with:
+        cache-on-failure: false 
+        cache-all-crates: true
+
+
+    - name: Build Rust project
+      env:
+        PACKAGES: "trading_be"
+      run: |
+        for package in $PACKAGES; do
+          cargo build --package $package --release
+        done
+
+   
+
+    - name: Create Debian package
+        
+      run: cargo deb --no-build --deb-version 1.0.$GITHUB_RUN_NUMBER --no-strip -p trading_be
+      
+    - name: List Deb files
+      run: | 
+         find .
+   ## - name: Upload .deb package
+     ## uses: actions/upload-artifact@v3
+    ## with:
+    ##    name: debian-package
+    ##    path: target/debian/*.deb
+    - name: Upload to bunny
+      env: 
+          STORAGE_API_KEY: ${{ secrets.BUNNYCDN_STORAGE_API_KEY }}
+          ZONE_API_KEY: ${{ secrets.BUNNYCDN_ZONE_API_KEY }}
+          ZONE_ID: ${{ secrets.BUNNYCDN_DEV_ZONE_ID }}
+          STORAGE_NAME: ${{ secrets.BUNNYCDN_STORAGE_NAME }}
+      run: | 
+          cd target/debian
+          curl -s --request PUT --header "AccessKey: $STORAGE_API_KEY" -T ./*.deb "https://storage.bunnycdn.com/$STORAGE_NAME/"
+          curl -s --request POST --header "AccessKey: $ZONE_API_KEY" --header "Content-Type: application/json" --header "Accept: application/json" "https://bunnycdn.com/api/pullzone/$ZONE_ID/purgeCache" --data "{"id":"$ZONE_ID"}"
+        

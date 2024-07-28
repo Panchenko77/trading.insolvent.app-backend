@@ -1,0 +1,14 @@
+#!/bin/bash
+# Reload the systemd daemon to apply changes
+systemctl daemon-reload
+# bin
+chown deploy:deploy /usr/local/trading_be/trading_be
+setcap CAP_NET_BIND_SERVICE=+eip /usr/local/trading_be/trading_be
+# systemd
+chown deploy:deploy /etc/systemd/system/trading_user.service
+# config
+chown deploy:deploy /etc/insolvent/trading/config.toml
+
+# log
+install -m 770 -o deploy -g deploy -d /var/log/trading-be/log
+install -m 770 -o deploy -g deploy -d /var/lib/trading-be/1.0/db

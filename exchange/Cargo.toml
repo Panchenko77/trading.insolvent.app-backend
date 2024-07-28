@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "common",
+    "model",
+    "exchange",
+    "exchange/core",
+    "exchange/crates/*",
+    "exchange/utils",
+]
+
+[workspace.dependencies]
+common = { path = "common" }
+trading-exchange = { path = "exchange" }
+trading-exchange-core = { path = "exchange/core" }
+trading-model = { path = "model" }
+
+
+[patch.crates-io]
+# https://github.com/dalek-cryptography/curve25519-dalek/issues/452
+#curve25519-dalek = { git = "https://github.com/JakkuSakura/curve25519-dalek", branch = "release/3.2" }
+#aes-gcm-siv = { git = "https://github.com/JakkuSakura/AEADs", branch = "relax" }

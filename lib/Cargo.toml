@@ -1,0 +1,55 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "lib"
+edition = "2021"
+version = "0.1.1"
+
+[lib]
+name = "lib"
+path = "lib.rs"
+
+[dependencies]
+bytes = { workspace = true }
+chrono = { workspace = true }
+clap = { workspace = true }
+endpoint-gen = { workspace = true }
+convert_case = { workspace = true }
+dashmap = { workspace = true }
+eyre = { workspace = true }
+futures = { workspace = true }
+hex = { workspace = true }
+itertools = { workspace = true }
+log-panics = { workspace = true }
+reqwest = { workspace = true }
+rustls = { workspace = true }
+rustls-pemfile = { workspace = true }
+secrecy = { workspace = true, features = ["bytes", "serde"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_path_to_error = { workspace = true }
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+tokio-rustls = { workspace = true }
+gluesql = { workspace = true }
+gluesql-derive = { workspace = true }
+tokio-tungstenite = { workspace = true }
+tracing = { workspace = true }
+tracing-log = { workspace = true }
+tracing-subscriber = { workspace = true }
+tracing-appender = { workspace = true }
+regex = { workspace = true }
+urlencoding = { workspace = true }
+lazy_static = { workspace = true }
+hyper = { workspace = true }
+async-trait = { workspace = true }
+serde_with = { workspace = true }
+serde_with_macros = { workspace = true }
+rpassword = { workspace = true }
+rand = { workspace = true }
+base64 = { workspace = true }
+chacha_poly.workspace = true
+rust_decimal.workspace = true
+parking_lot.workspace = true
+alloy-primitives = "0.7.2"
+rev_lines = "0.3.0"

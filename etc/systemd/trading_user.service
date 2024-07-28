@@ -1,0 +1,23 @@
+[Unit]
+Description=trading user
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+
+User=deploy
+Group=deploy
+
+Type=simple
+Restart=always
+RestartSec=10
+WorkingDirectory=/usr/local/trading_be/
+ExecStart=/usr/local/trading_be/trading_be --config /etc/insolvent/trading/config.toml
+
+StandardError=append:/var/log/trading_be.log
+StandardOutput=append:/var/log/trading_be.log
+StandardInput=null
+
+[Install]
+WantedBy=default.target
+

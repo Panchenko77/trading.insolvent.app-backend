@@ -1,0 +1,20 @@
+# dev config
+# please only use this for develoment purpose
+log_level = "info"
+skip_key = false
+
+[database]
+directory = "db_glue"
+
+[log]
+level = "info"
+file = "./"
+
+[server]
+name = "trading_be"
+address = "0.0.0.0:8443"
+# uncomment below when key is generated in the enviroment
+# priv_key = "/etc/letsencrypt/live/trading-be.insolvent.app/privkey.pem"
+# pub_certs = ["/etc/letsencrypt/live/trading-be.insolvent.app/fullchain.pem"]
+# it works only for localhost
+insecure = true

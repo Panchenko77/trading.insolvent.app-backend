@@ -1,0 +1,32 @@
+[package]
+name = "trading-exchange-drift"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest = { version = "0.12.4", default-features = false, features = ["json", "rustls-tls"] }
+tracing = "0.1"
+rust_decimal = "1.33.1"
+serde = { version = "1.0.193", features = ["derive"] }
+serde_json = "*"
+tokio = "1"
+tokio-tungstenite = "0.21.0"
+thiserror = "1"
+eyre = "0.6.12"
+common = { path = "../../../common" }
+trading-model = { path = "../../../model" }
+trading-exchange-core = { path = "../../core" }
+regex = "1.5.4"
+async-trait = "0.1"
+http = "1.1.0"
+futures = "0.3"
+path-clean = "1"
+dashmap = "5.5.3"
+base64 = "0.22.0"
+
+
+# Put the following in the Cargo.toml of the root of the workspace
+#[patch.crates-io]
+## https://github.com/dalek-cryptography/curve25519-dalek/issues/452
+#curve25519-dalek = { git = "https://github.com/JakkuSakura/curve25519-dalek", branch = "release/3.2" }
+#aes-gcm-siv = { git = "https://github.com/JakkuSakura/AEADs", branch = "relax" }

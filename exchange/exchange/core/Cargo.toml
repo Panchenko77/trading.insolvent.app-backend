@@ -1,0 +1,50 @@
+[package]
+name = "trading-exchange-core"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+trading-model = { path = "../../model" }
+reqwest = { version = "0.12.4", default-features = false, features = ["json", "rustls-tls"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1.74"
+eyre = "0.6.8"
+chrono = "0.4.31"
+hmac = "0.12.1"
+sha2 = "0.10.8"
+percent-encoding = "2.3.0"
+hex = "0.4.3"
+base64 = "0.22.0"
+futures = "0.3.30"
+streamunordered = "0.5.3"
+tracing = "0.1"
+zeromq = "0.3.5"
+async-stream = "0.3.5"
+dashmap = "5.5.3"
+serde_with = "3.6.1"
+serde_with_macros = "3.6.1"
+secrecy = { version = "0.8.0", features = ["serde", "bytes"] }
+rpassword = "7.3"
+aes-gcm = "0.10.3"
+rand = "0.8.5"
+bytes = { version = "1.5.0", features = [] }
+parse-display = "0.9.0"
+indenter = "0.3.3"
+malachite = "0.4.5"
+derive-from-one = "0.1.0"
+schemars = { version = "0.8", features = ["chrono", "derive"] }
+hashbrown = "0.14.3"
+postgres-derive = "0.4.1"
+strum = "0.26.1"
+strum_macros = "0.26.1"
+csv = "1.1.6"
+tokio-tungstenite = { version = "0.21.0", features = ["rustls-tls-webpki-roots"] }
+http = "1.1.0"
+itertools = "0.12.1"
+expect-test = "1.4.1"
+float_eq = "1.0.1"
+num_enum = "0.7.2"

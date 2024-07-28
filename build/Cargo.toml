@@ -1,0 +1,38 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "build"
+version = "0.1.1"
+edition = "2021"
+
+[lib]
+name = "build"
+path = "lib.rs"
+
+[build-dependencies]
+endpoint-gen = { workspace = true }
+eyre = { workspace = true }
+
+[dependencies]
+# Internal
+endpoint-gen = { workspace = true }
+lib = { workspace = true }
+# External
+bytes = { workspace = true }
+convert_case = { workspace = true }
+eyre = { workspace = true }
+itertools = { workspace = true }
+num = { workspace = true }
+num-derive = { workspace = true }
+num-traits = { workspace = true }
+postgres-from-row = { workspace = true }
+postgres-types = { workspace = true }
+rust_decimal = { workspace = true }
+rust_decimal_macros = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+strum = { workspace = true }
+strum_macros = { workspace = true }
+tokio-postgres = { workspace = true }
+uuid = { workspace = true }
+

@@ -1,0 +1,15 @@
+[
+  "UserGetDebugLog",
+  "UserGetStrategyData",
+  "UserGetStrategyEvent",
+  "UserGetStrategyOneAccuracy",
+  "UserGetStrategyOneEvent",
+  "UserGetStrategyOneSymbol",
+  "UserGetSymbolList",
+  "UserSetPrivateKey",
+  "UserSetStrategyOneSymbolFlag",
+  "UserStartService",
+  "UserSubStrategyData",
+  "UserSubStrategyEvent",
+  "UserSubStrategyOneEvent"
+]

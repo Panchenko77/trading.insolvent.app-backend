@@ -1,0 +1,18 @@
+# server config
+# please store this file at /etc/insolvent/trading/config.toml in deployment machine
+skip_key = false
+
+[database]
+directory = "/var/lib/trading-be/1.0/db"
+
+[log]
+level = "info"
+file = "/var/log/trading-be/log/log"
+
+[server]
+name = "trading_be"
+address = "0.0.0.0:8443"
+priv_key = "/etc/letsencrypt/live/trading-be.insolvent.app/privkey.pem"
+pub_certs = ["/etc/letsencrypt/live/trading-be.insolvent.app/fullchain.pem"]
+# it works only for localhost
+insecure = false

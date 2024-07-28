@@ -1,0 +1,15 @@
+[Unit]
+Description=trading auth
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+WorkingDirectory=/usr/local/trading_be/
+ExecStart=/usr/local/trading_be/trading_be
+
+[Install]
+WantedBy=default.target
+

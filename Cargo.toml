@@ -1,0 +1,97 @@
+# [[bench]]
+# name = "infrastructure"
+# harness = false
+
+[workspace]
+members = ["build", "lib", "service/user"]
+exclude = ["exchange"]
+resolver = "2"
+
+[workspace.dependencies]
+# Internal
+lib = { path = "lib" }
+build = { path = "build" }
+user = { path = "service/user" }
+worktable = { git = "https://github.com/insolvent-capital/WorkTable" }
+endpoint-gen = "0.1.1"
+# place both exchange and trading at the same dir
+trading-exchange = { path = "./exchange/exchange" }
+trading-model = { path = "./exchange/model" }
+# External
+libc = "0.2.153"
+alloy-dyn-abi = { version = "0.7.2" }
+stable-hash = "0.4.3"
+alloy-json-abi = { version = "0.7.2" }
+alloy-primitives = { version = "0.7.2" }
+alloy-sol-types = { version = "0.7.2", features = ['json'] }
+async-trait = "0.1.74"
+byteorder = "*"
+bytes = "*"
+chrono = "*"
+clap = { version = "=4.3.24", features = ["derive", "env"] }
+convert_case = "*"
+core_affinity = "0.8.1"
+csv = "1.2.1"
+dashmap = "*"
+ethers = "2.0.11"
+eyre = "*"
+futures = "*"
+hex = "*"
+itertools = "*"
+lazy_static = "1.4.0"
+log-panics = { version = "*", features = ["with-backtrace"] }
+nonzero_ext = "*"
+num = "0.4"
+num_enum = "0.7.2"
+num-derive = "0.4.0"
+num-traits = "0.2.0"
+pin-utils = "*"
+postgres-from-row = "0.5.2"
+postgres-types = { version = "*", features = ["derive"] }
+rand = "0.8.5"
+regex = "*"
+reqwest = { version = "*", default-features = false, features = ["rustls-tls", "serde_json", "json"] }
+rust_decimal = { version = "1.29.1", features = ["db-tokio-postgres", "serde-with-str"] }
+rust_decimal_macros = "1.29.1"
+rustls = "0.20.6"
+rustls-pemfile = "1.0.1"
+secrecy = { version = "0.8.0", features = ["serde"] }
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "*"
+serde_path_to_error = "0.1"
+sqlx = { version = "0.7.2", features = ["postgres", "runtime-tokio"] }
+static_assertions = "*"
+strum = "0.25.0"
+strum_macros = "0.25.3"
+syn = { version = "2.0.18", features = ["full", "extra-traits"] }
+syn-solidity = { version = "0.4.2" }
+time = "0.3.36"
+tokio = { version = "1.37.0", features = ["full"] }
+tokio-util = "0.7.10"
+tokio-cron-scheduler = "0.10.0"
+tokio-postgres = { version = "*", features = ["with-uuid-1", "with-serde_json-1"] }
+tokio-rustls = "0.23.4"
+tokio-tungstenite = { version = "0.20.0", features = ["rustls-tls-webpki-roots"] }
+tracing = "0.1.40"
+tracing-appender = "0.2.3"
+tracing-log = "*"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+urlencoding = "*"
+uuid = { version = "1.3.3", features = ["v4", "fast-rng", "macro-diagnostics", "serde"] }
+kanal = { version = "0.1.0-pre8", features = ["async"] }
+tempfile = "3.9.0"
+gluesql = "0.15.0"
+gluesql-derive = "0.2.5"
+interning = "0.2.2"
+lru = "0.12.1"
+web3 = "*"
+hyper = { version = "0.14.23", features = ["full"] }
+serde_with = "3.6.1"
+serde_with_macros = "3.6.1"
+rpassword = "7.3"
+base64 = "0.22.0"
+chacha20poly1305 = "0.10.1"
+toml = "0.8.12"
+parking_lot = "0.12.2"
+gluesql_shared_sled_storage = "0.2.0"
+chacha_poly = { git = "https://github.com/pathscale/XChaCha20Poly1305-cli-helper" }

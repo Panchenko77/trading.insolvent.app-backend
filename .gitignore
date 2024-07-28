@@ -1,0 +1,17 @@
+# target
+target
+# workspace
+.vscode
+.idea
+.env
+# log
+log
+# database
+db_*
+# generated files
+src/service/user/docs*
+# locally stored debug files
+sample
+src/service/user/logs/log.*
+.DS_Store
+flamegraph.svg
